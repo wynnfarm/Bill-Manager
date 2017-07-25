@@ -9,7 +9,7 @@ export default function() {
   */
 
   // this.urlPrefix = '';    // make this `http://localhost:8080`, for example, if your API is on a different server
-  // this.namespace = '';    // make this `/api`, for example, if your API is namespaced
+  this.namespace = 'api';    // make this `/api`, for example, if your API is namespaced
   // this.timing = 400;      // delay for each request, automatically set to 0 during testing
 
   /*
@@ -23,4 +23,14 @@ export default function() {
 
     http://www.ember-cli-mirage.com/docs/v0.3.x/shorthands/
   */
+
+  this.get('/bills', () => {
+    return {
+      bills: [
+        {id: 1, name: 'Four Seasons', date: 17, amount: 57, account: "SouthWest"},
+        {id: 2, name: 'Comcast', date: 23, amount: 80, account: "Southwest"},
+        {id: 3, name: 'Mortgage', date:'pay period', amount: 501, account: "Bill Pay"},
+      ]
+    };
+  });
 }
