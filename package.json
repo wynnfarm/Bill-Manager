@@ -1,6 +1,6 @@
 {
   "name": "bill-manager",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Small description for bill-manager goes here",
   "license": "MIT",
   "author": "",
@@ -36,6 +36,7 @@
     "ember-resolver": "^4.0.0",
     "ember-source": "~2.14.0",
     "ember-welcome-page": "^3.0.0",
+    "eslint": "^4.3.0",
     "loader.js": "^4.2.3"
   },
   "engines": {

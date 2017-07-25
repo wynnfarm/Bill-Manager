@@ -1,16 +1,25 @@
-module.exports = {
-  globals: {
-    server: true,
-  },
-  root: true,
-  parserOptions: {
-    ecmaVersion: 2017,
-    sourceType: 'module'
-  },
-  extends: 'eslint:recommended',
-  env: {
-    browser: true
-  },
-  rules: {
-  }
-};
+{
+    "env": {
+        "browser": true,
+        "es6": true
+    },
+    "extends": "eslint:recommended",
+    "parserOptions": {
+        "sourceType": "module"
+    },
+    "rules": {
+        "indent": [
+            "error",
+            "tab"
+        ],
+        "linebreak-style": [
+            "error",
+            "unix"
+        ],
+        "quotes": [
+            "error",
+            "single"
+        ],
+        "semi": ["error","always"]
+    }
+}
