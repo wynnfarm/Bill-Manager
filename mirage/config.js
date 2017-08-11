@@ -26,11 +26,31 @@ export default function() {
 
   this.get('/bills', () => {
     return {
-      bills: [
-        {id: 1, name: 'Four Seasons', date: 17, amount: 57, account: "SouthWest"},
-        {id: 2, name: 'Comcast', date: 23, amount: 80, account: "Southwest"},
-        {id: 3, name: 'Mortgage', date:'pay period', amount: 501, account: "Bill Pay"},
-      ]
+      data: [{
+        type:'bills',
+        attributes: {
+          billerName: 'Verizon',
+          billDate: '27',
+          billAmount: '69',
+          billFrequency: 'monthly',
+          withdrawAccount: 'Southwest'
+        }, {
+          type:'bills',
+          attributes: {
+            billerName: 'Four Seasons',
+            billDate: '17',
+            billAmount: '57',
+            billFrequency: 'monthly',
+            withdrawAccount: 'Southwest'
+        }, {
+          type:'bills',
+          attributes: {
+            billerName: 'Mortgage',
+            billDate: '1',
+            billAmount: '57',
+            billFrequency: 'monthly',
+            withdrawAccount: 'Bill Pay'
+        }]
     };
   });
 }
