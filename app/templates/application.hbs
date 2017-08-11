@@ -1,23 +1,24 @@
 {{!-- The following component displays Ember's default welcome message. --}}
 
 {{!-- Feel free to remove this! --}}
-<div class="container">
-  <div class="menu">
-    {{#link-to 'home'}}
-      <h1>
-        <em>Home</em>
-      </h1>
-    {{/link-to}}
-    <div class="links">
-      {{#link-to 'about'}}
-        About
-      {{/link-to}}
-      {{#link-to 'contact'}}
-        Contact
-      {{/link-to}}
-    </div>
+{{#bs-navbar as |navbar|}}
+  <div class="navbar-header">
+    {{navbar.toggle}}
+    <a class="navbar-brand" href=home>Bill Manager</a>
+
   </div>
+  {{#navbar.content}}
+    {{#navbar.nav as |nav|}}
+      {{#nav.item}}
+        {{#nav.link-to "home"}}Home{{/nav.link-to}}
+      {{/nav.item}}
+      {{#nav.item}}
+        {{#nav.link-to "bills"}}Bills{{/nav.link-to}}
+      {{/nav.item}}
+    {{/navbar.nav}}
+  {{/navbar.content}}
+{{/bs-navbar}}
+
   <div class="body">
     {{outlet}}
   </div>
-</div>
