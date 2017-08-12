@@ -16,7 +16,6 @@ export default Ember.Component.extend({
       return this.set('viewable', true);
     },
     save(){
-      debugger;
       return this.set('viewable', true);
 
     }

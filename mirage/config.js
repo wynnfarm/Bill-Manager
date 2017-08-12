@@ -25,7 +25,7 @@ export default function() {
 
   this.namespace = ''; // make this `/api`, for example, if your API is namespaced
 
-
+  this.post('/bills');
   this.get('/bills', function () {
     return {
       data: [{
