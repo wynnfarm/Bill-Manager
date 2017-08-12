@@ -1,0 +1,14 @@
+<div class="row">
+  {{#bs-form  model=bill  as |form|}}
+      <div class="col-md-6">
+        {{form.element controlType="text" label="Biller Name" placeholder="Biller Name" property="billerName" }}
+        {{form.element controlType="text" label="Bill Date" placeholder="Bill Date" property="billDate" }}
+        {{form.element controlType="text" label="Bill Amount" placeholder="Bill Amount" property="billAmount" }}
+      </div>
+      <div class="col-md-6">
+        {{form.element controlType="text" label="Bill Frequency" placeholder="Bill Frequency" property="billFrequency" }}
+        {{form.element controlType="text" label="Withdraw Account" placeholder="Withdraw Account" property="withdrawAccount" }}
+        {{#bs-button buttonType="submit" type="primary"}}Create{{/bs-button}}
+      </div>
+  {{/bs-form}}
+</div>
