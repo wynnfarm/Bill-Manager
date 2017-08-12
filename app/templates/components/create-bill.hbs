@@ -1,5 +1,5 @@
 <div class="row">
-  {{#bs-form  model=bill  as |form|}}
+  {{#bs-form model=this onSubmit=(action 'create') as |form|}}
       <div class="col-md-6">
         {{form.element controlType="text" label="Biller Name" placeholder="Biller Name" property="billerName" }}
         {{form.element controlType="text" label="Bill Date" placeholder="Bill Date" property="billDate" }}
@@ -8,7 +8,7 @@
       <div class="col-md-6">
         {{form.element controlType="text" label="Bill Frequency" placeholder="Bill Frequency" property="billFrequency" }}
         {{form.element controlType="text" label="Withdraw Account" placeholder="Withdraw Account" property="withdrawAccount" }}
-        {{#bs-button buttonType="submit" type="primary"}}Create{{/bs-button}}
+        {{#bs-button buttonType="submit" type="primary" onClick=(action 'create')}}Create{{/bs-button}}
       </div>
   {{/bs-form}}
 </div>
