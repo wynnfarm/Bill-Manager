@@ -25,40 +25,59 @@ export default function() {
 
   this.namespace = ''; // make this `/api`, for example, if your API is namespaced
 
-  this.post('/bills');
-  this.get('/bills', function () {
-    return {
-      data: [{
-        type: 'bills',
-        id: 1,
-        attributes: {
-          billerName: 'Verizon',
-          billDate: '27',
-          billAmount: '69',
-          billFrequency: 'monthly',
-          withdrawAccount: 'Southwest'
-        }
-      }, {
-        type: 'bills',
-        id: 2,
-        attributes: {
-          billerName: 'Four Seasons',
-          billDate: '17',
-          billAmount: '57',
-          billFrequency: 'monthly',
-          withdrawAccount: 'Southwest'
-        }
-      }, {
-        type: 'bills',
-        id: 3,
-        attributes: {
-          billerName: 'Mortgage',
-          billDate: '1',
-          billAmount: '57',
-          billFrequency: 'monthly',
-          withdrawAccount: 'Bill Pay'
-        }
-      }]
-    };
+  // this.post('/bills');
+
+  this.post('/bills', (schema, request) => {
+    const attrs = JSON.parse(request.requestBody).bill;
+
+    return schema.bills.create(attrs);
+  });
+
+
+
+
+  this.del('/bills/:id');
+  this.get('/bills', (schema, request) => {
+    debugger;
+    return schema.bills.all();
+  });
+
+
+  this.get('/bills', function (schema) {
+    // debugger;
+    return schema.bills.all();
+    // {
+    //   data: [{
+    //     type: 'bills',
+    //     id: 1,
+    //     attributes: {
+    //       billerName: 'Verizon',
+    //       billDate: '27',
+    //       billAmount: '69',
+    //       billFrequency: 'monthly',
+    //       withdrawAccount: 'Southwest'
+    //     }
+    //   }, {
+    //     type: 'bills',
+    //     id: 2,
+    //     attributes: {
+    //       billerName: 'Four Seasons',
+    //       billDate: '17',
+    //       billAmount: '57',
+    //       billFrequency: 'monthly',
+    //       withdrawAccount: 'Southwest'
+    //     }
+    //   }, {
+    //     type: 'bills',
+    //     id: 3,
+    //     attributes: {
+    //       billerName: 'Mortgage',
+    //       billDate: '1',
+    //       billAmount: '57',
+    //       billFrequency: 'monthly',
+    //       withdrawAccount: 'Bill Pay'
+    //     }
+    //   }]
+    // };
   });
 }
