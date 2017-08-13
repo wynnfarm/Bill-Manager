@@ -4,6 +4,7 @@ export default Ember.Component.extend({
   bills: null,
   expanded: false,
   viewable: true,
+  delete: null,
 
   actions:{
     toggle(){
@@ -17,7 +18,9 @@ export default Ember.Component.extend({
     },
     save(){
       return this.set('viewable', true);
-
+    },
+    delete(bill){
+      this.get('delete')(bill);
     }
   }
 

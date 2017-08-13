@@ -6,9 +6,11 @@
         <p>Bill Amount: {{bill.billAmount}}</p>
         <p>Bill Frequency: {{bill.billFrequency}}</p>
         <p>Withdraw Account: {{bill.withdrawAccount}}</p>
-        <button type="button" class="btn btn-primary" onClick={{action "edit"}}>
+        {{#bs-button buttonType="button" type="primary" onClick=(action 'edit')}}Edit{{/bs-button}}
+        {{#bs-button buttonType="button" type="danger" onClick=(action 'delete' bill)}}Delete{{/bs-button}}
+        {{!-- <button type="button" class="btn btn-primary" onClick={{action "edit"}}>
           Edit
-        </button>
+        </button> --}}
       {{else}}
         {{#bs-form  model=bill  as |form|}}
           <div class="row">
