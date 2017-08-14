@@ -18,7 +18,10 @@
               {{form.element controlType="text" label="Bill Amount" placeholder="Bill Amount" property="billAmount" }}
             </div>
             <div class="col-md-6">
-              {{form.element controlType="text" label="Bill Frequency" placeholder="Bill Frequency" property="billFrequency" }}
+              <label>Bill Frequency</label>
+              {{#power-select  selected=selectedFreq searchEnabled=false options=billFreqOptions  onchange=(action "selFreq") as |name|}}
+                {{name}}
+              {{/power-select}}
               {{form.element controlType="text" label="Withdraw Account" placeholder="Withdraw Account" property="withdrawAccount" }}
               {{#bs-button buttonType="submit" type="default"  onClick=(action 'cancel')}}Cancel{{/bs-button}}
               {{#bs-button buttonType="submit" type="primary"  onClick=(action 'save')}}Save{{/bs-button}}

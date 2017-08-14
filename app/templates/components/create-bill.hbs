@@ -1,14 +1,26 @@
 <div class="row">
   {{#bs-form model=this onSubmit=(action 'create') as |form|}}
+    {{#form.group validation=firstNameValidation}}
       <div class="col-md-6">
         {{form.element controlType="text" label="Biller Name" placeholder="Biller Name" property="billerName" }}
         {{form.element controlType="text" label="Bill Date" placeholder="Bill Date" property="billDate" }}
         {{form.element controlType="text" label="Bill Amount" placeholder="Bill Amount" property="billAmount" }}
       </div>
       <div class="col-md-6">
-        {{form.element controlType="text" label="Bill Frequency" placeholder="Bill Frequency" property="billFrequency" }}
-        {{form.element controlType="text" label="Withdraw Account" placeholder="Withdraw Account" property="withdrawAccount" }}
+        <label>Bill Frequency</label>
+        {{#power-select  selected=selectedFreq searchEnabled=false options=billFreqOptions  onchange=(action "selFreq") as |name|}}
+          {{name}}
+        {{/power-select}}
+        <br>
+        <label>Withdraw Account</label>
+        {{#power-select  selected=currentlySelected searchEnabled=false options=billAccountOptions  onchange=(action "selectedAccount") as |name|}}
+          {{name}}
+        {{/power-select}}
+        <br>
+        {{!-- {{form.element controlType="text" label="Bill Frequency" placeholder="Bill Frequency" property="billFrequency" }} --}}
+          {{!-- {{form.element controlType="text" label="Withdraw Account" placeholder="Withdraw Account" property="withdrawAccount" }} --}}
         {{#bs-button buttonType="submit" type="primary" onClick=(action 'create')}}Create{{/bs-button}}
       </div>
+    {{/form.group}}
   {{/bs-form}}
 </div>
