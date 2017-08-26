@@ -1,11 +1,14 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
-  bills: null,
+  // model: null,
+  // changeset: null,
   expanded: false,
   viewable: true,
-
+  cancel: null,
+  save: null,
   actions:{
+
     toggle(){
       this.toggle('expanded');
     },
@@ -15,10 +18,11 @@ export default Ember.Component.extend({
     cancel(){
       return this.set('viewable', true);
     },
-    save(){
-      return this.set('viewable', true);
-
+    // save(changeset){
+    //   this.get('save')(changeset);
+    // },
+    test(){
+      debugger;
     }
   }
-
 });

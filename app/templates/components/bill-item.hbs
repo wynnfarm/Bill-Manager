@@ -1,3 +1,5 @@
+{{#bs-button buttonType="submit" type="default"  onClick=(action 'test')}}Test{{/bs-button}}
+
   {{#bs-accordion as |acc|}}
   {{#each bills as |bill|}}
     {{#acc.item title=bill.billerName}}
@@ -10,25 +12,9 @@
           Edit
         </button>
       {{else}}
-        {{#bs-form  model=bill  as |form|}}
-          <div class="row">
-            <div class="col-md-6">
-              {{form.element controlType="text" label="Biller Name" placeholder="Biller Name" property="billerName" }}
-              {{form.element controlType="text" label="Bill Date" placeholder="Bill Date" property="billDate" }}
-              {{form.element controlType="text" label="Bill Amount" placeholder="Bill Amount" property="billAmount" }}
-            </div>
-            <div class="col-md-6">
-              <label>Bill Frequency</label>
-              {{#power-select  selected=selectedFreq searchEnabled=false options=billFreqOptions  onchange=(action "selFreq") as |name|}}
-                {{name}}
-              {{/power-select}}
-              {{form.element controlType="text" label="Withdraw Account" placeholder="Withdraw Account" property="withdrawAccount" }}
-              {{#bs-button buttonType="submit" type="default"  onClick=(action 'cancel')}}Cancel{{/bs-button}}
-              {{#bs-button buttonType="submit" type="primary"  onClick=(action 'save')}}Save{{/bs-button}}
-            </div>
-          </div>
-        {{/bs-form}}
+        {{edit-bill bill=bill cancel=(action 'cancel')}}
       {{/if}}
     {{/acc.item}}
   {{/each}}
  {{/bs-accordion}}
+ {{!-- save=(action 'save' changeset) --}}
