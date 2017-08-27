@@ -1,3 +1,5 @@
+{{#bs-button buttonType="submit" type="default"  onClick=(action 'test')}}Test{{/bs-button}}
+
   {{#bs-accordion as |acc|}}
   {{#each bills as |bill|}}
     {{#acc.item title=bill.billerName}}
@@ -6,28 +8,12 @@
         <p>Bill Amount: {{bill.billAmount}}</p>
         <p>Bill Frequency: {{bill.billFrequency}}</p>
         <p>Withdraw Account: {{bill.withdrawAccount}}</p>
-        {{#bs-button buttonType="button" type="primary" onClick=(action 'edit')}}Edit{{/bs-button}}
-        {{#bs-button buttonType="button" type="danger" onClick=(action 'delete' bill)}}Delete{{/bs-button}}
-        {{!-- <button type="button" class="btn btn-primary" onClick={{action "edit"}}>
-          Edit
-        </button> --}}
+        <button type="button" class="btn btn-primary" onClick={{action "edit"}}>Edit</button>
+        <button type="button" class="btn btn-default" onClick={{action "delete" bill}}>Delete</button>
       {{else}}
-        {{#bs-form  model=bill  as |form|}}
-          <div class="row">
-            <div class="col-md-6">
-              {{form.element controlType="text" label="Biller Name" placeholder="Biller Name" property="billerName" }}
-              {{form.element controlType="text" label="Bill Date" placeholder="Bill Date" property="billDate" }}
-              {{form.element controlType="text" label="Bill Amount" placeholder="Bill Amount" property="billAmount" }}
-            </div>
-            <div class="col-md-6">
-              {{form.element controlType="text" label="Bill Frequency" placeholder="Bill Frequency" property="billFrequency" }}
-              {{form.element controlType="text" label="Withdraw Account" placeholder="Withdraw Account" property="withdrawAccount" }}
-              {{#bs-button buttonType="submit" type="default"  onClick=(action 'cancel')}}Cancel{{/bs-button}}
-              {{#bs-button buttonType="submit" type="primary"  onClick=(action 'save')}}Save{{/bs-button}}
-            </div>
-          </div>
-        {{/bs-form}}
+        {{edit-bill bill=bill cancel=(action 'cancel')}}
       {{/if}}
     {{/acc.item}}
   {{/each}}
  {{/bs-accordion}}
+ {{!-- save=(action 'save' changeset) --}}

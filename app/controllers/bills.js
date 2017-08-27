@@ -1,7 +1,24 @@
 import Ember from 'ember';
+import Changeset from 'ember-changeset';
 
 export default Ember.Controller.extend({
-  bills: '',
+  init() {
+      this._super(...arguments);
+      // debugger;
+      // let model = this.get('model');
+      // // // let validator = this.get(this, 'validate');
+      // this.changeset = new Changeset(model);
+    },
+  // changeset: Ember.computed('model', function() {
+  //   return new Changeset(this.get('model'));
+  // }),
+  bills: Ember.computed('model',function(){
+    return this.get('model');
+  }),
+  isDirty() {
+    return this.get('changeset.isDirty');
+  },
+
   actions:{
     createRecord(newBill){
       this.store.createRecord('bill', {
@@ -14,14 +31,8 @@ export default Ember.Controller.extend({
         withdrawAccount: newBill.withdrawAccount
       }).save();
     },
-    deleteRecord(billIn){
-      // debugger;
-      billIn.destroyRecord();
-      // this.store.findRecord('bill', billIn.id, { backgroundReload: false }).then(function(bill) {
-      //   bill.deleteRecord();
-      //   bill.get('isDeleted'); // => true
-      //   bill.save();
-      // });
-    }
+    // save(changeset){
+    //   changeset.save();
+    // }
   }
 });
