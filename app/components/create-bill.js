@@ -3,9 +3,9 @@ import Ember from 'ember';
 export default Ember.Component.extend({
   create: null,
   billFreqOptions:['Monthly', 'Pay Period'],
-  selectedFreq:'Monthly',
+  selectedFreq:'Choose a Frequency',
   billAccountOptions:['Bill Pay', 'SouthWest', 'General'],
-  currentlySelected:'Bill Pay',
+  selectedWithdrawAcct:'Choose an Account',
   actions:{
     create(){
       // this.set('billFrequency', this.get('selectedFreq'));
@@ -16,8 +16,8 @@ export default Ember.Component.extend({
       this.set('billFrequency', this.get('selectedFreq'));
     },
     selectedAccount(acctIn){
-      this.set('selectedAccount', acctIn);
-      this.set('withdrawAccount', this.get('currentlySelected'));
+      this.set('selectedWithdrawAcct', acctIn);
+      this.set('withdrawAccount', this.get('selectedWithdrawAcct'));
     }
 
   }

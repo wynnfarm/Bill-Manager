@@ -15,6 +15,10 @@ export default Ember.Component.extend({
     edit(){
       return this.set('viewable', false);
     },
+    delete(bill){
+      bill.deleteRecord();
+      bill.save();
+    },
     cancel(){
       return this.set('viewable', true);
     },

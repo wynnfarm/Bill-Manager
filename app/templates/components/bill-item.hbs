@@ -8,9 +8,8 @@
         <p>Bill Amount: {{bill.billAmount}}</p>
         <p>Bill Frequency: {{bill.billFrequency}}</p>
         <p>Withdraw Account: {{bill.withdrawAccount}}</p>
-        <button type="button" class="btn btn-primary" onClick={{action "edit"}}>
-          Edit
-        </button>
+        <button type="button" class="btn btn-primary" onClick={{action "edit"}}>Edit</button>
+        <button type="button" class="btn btn-default" onClick={{action "delete" bill}}>Delete</button>
       {{else}}
         {{edit-bill bill=bill cancel=(action 'cancel')}}
       {{/if}}

@@ -7,15 +7,23 @@
         {{form.element controlType="text" label="Bill Amount" placeholder="Bill Amount" property="billAmount" }}
       </div>
       <div class="col-md-6">
-        <label>Bill Frequency</label>
-        {{#power-select  selected=selectedFreq searchEnabled=false options=billFreqOptions  onchange=(action "selFreq") as |name|}}
-          {{name}}
-        {{/power-select}}
+        {{#form.element controlType="power-select" label="Bill Frequency" as |el|}}
+          {{#el.control  options=billFreqOptions value=selectedFreq onChange=(action "selFreq") property=billFrequency searchEnabled=false as |item|}}
+            {{item}}
+          {{/el.control}}
+        {{/form.element}}
+
         <br>
-        <label>Withdraw Account</label>
+        {{#form.element controlType="power-select" label="Withdraw Account" as |el|}}
+          {{#el.control  options=billAccountOptions value=selectedWithdrawAcct onChange=(action "selectedAccount") property=withdrawAccount searchEnabled=false as |item|}}
+            {{item}}
+          {{/el.control}}
+        {{/form.element}}
+
+        {{!-- <label>Withdraw Account</label>
         {{#power-select  selected=currentlySelected searchEnabled=false options=billAccountOptions  onchange=(action "selectedAccount") as |name|}}
           {{name}}
-        {{/power-select}}
+        {{/power-select}} --}}
         <br>
         {{!-- {{form.element controlType="text" label="Bill Frequency" placeholder="Bill Frequency" property="billFrequency" }} --}}
           {{!-- {{form.element controlType="text" label="Withdraw Account" placeholder="Withdraw Account" property="withdrawAccount" }} --}}

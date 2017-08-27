@@ -15,6 +15,7 @@ export default Ember.Component.extend({
     },
     save(){
       this.get('changeset').save();
+      this.get('cancel')();
     },
     cancel(){
       this.get('cancel')();

@@ -25,10 +25,10 @@ export default function() {
 
   this.namespace = ''; // make this `/api`, for example, if your API is namespaced
   this.patch('/bills/:id', (schema, request) =>{
-    debugger;
+  });
+  this.del('/bills/:id',(schema,request)=>{
   });
   this.put('/bills/:id', (schema, request) =>{
-    debugger;
   });
   this.post('/bills');
   this.get('/bills', function () {
