@@ -22,8 +22,8 @@ export default Ember.Controller.extend({
   actions:{
     createRecord(newBill){
       this.store.createRecord('bill', {
-        id: Math.floor((1 + Math.random()) * 0x10000)
-      .toString(16),
+        //   id: Math.floor((1 + Math.random()) * 0x10000)
+        // .toString(16),
         billerName: newBill.billerName,
         billDate: newBill.billDate,
         billAmount: newBill.billAmount,
